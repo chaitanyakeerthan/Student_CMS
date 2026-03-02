@@ -1,0 +1,357 @@
+:root {
+  --primary: #5da2ff;
+  --text-dark: #1e293b;
+  --white: #ffffff;
+}
+
+
+.assignments-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 90px auto 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 35px;
+  color: var(--text-dark);
+}
+
+
+.create-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 35px;
+}
+
+.create-btn:hover {
+  box-shadow: 0 8px 20px rgba(93,162,255,0.45);
+  transform: translateY(-2px);
+}
+
+
+.assignments-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .assignments-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .assignments-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.assignment-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(93,162,255,0.12);
+  transition: 0.3s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(93,162,255,0.25);
+}
+
+.assignment-card h3 {
+  font-size: 1.1rem;
+  word-break: break-word;
+}
+
+.assignment-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  word-break: break-word;
+}
+
+.assignment-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+.download-btn,
+.view-submissions-btn,
+.btn7 {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 6px;
+}
+
+.download-btn:hover,
+.view-submissions-btn:hover,
+.btn7:hover {
+  box-shadow: 0 8px 20px rgba(93,162,255,0.45);
+  transform: translateY(-2px);
+}
+
+.btn7.danger {
+  background: #ff4d4d;
+}
+
+.btn7.danger:hover {
+  box-shadow: 0 6px 18px rgba(255,77,77,0.45);
+}
+
+.assignment-card input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.file-name {
+  font-size: 0.85rem;
+  background: rgba(93,162,255,0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  word-break: break-word;
+}
+
+.empty-text {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 20px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+
+.assignment-form {
+  background: var(--white);
+  width: 580px;
+  max-width: 95%;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(93,162,255,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.assignment-form::-webkit-scrollbar {
+  width: 8px;
+}
+
+.assignment-form::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.assignment-form::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+
+.assignment-form input,
+.assignment-form textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #dbeafe;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: 0.3s ease;
+}
+
+.assignment-form input:focus,
+.assignment-form textarea:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(93,162,255,0.15);
+  outline: none;
+}
+
+.assignment-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-actions .submit-btn,
+.form-actions .cancel-btn {
+  width: 160px;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-actions .submit-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.form-actions .submit-btn:hover {
+  box-shadow: 0 8px 20px rgba(93,162,255,0.45);
+  transform: translateY(-2px);
+}
+
+.form-actions .cancel-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.form-actions .cancel-btn:hover {
+  box-shadow: 0 8px 20px rgba(239,68,68,0.45);
+  transform: translateY(-2px);
+}
+
+
+.stats-bar {
+  display: flex;
+  gap: 15px;
+}
+
+.stat {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.stat.total {
+  background: rgba(93,162,255,0.15);
+}
+
+.stat.submitted {
+  background: rgba(34,197,94,0.15);
+}
+
+.stat.pending {
+  background: rgba(255,193,7,0.2);
+}
+
+.submission-row {
+  background: #f8fafc;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.submission-row:hover {
+  background: rgba(93,162,255,0.1);
+}
+
+.assignment-form > .cancel-btn {
+  margin-top: 35px;
+  align-self: center;
+
+  width: 260px;       
+  height: 65px;       
+  padding: 10px;     
+
+  font-size: 18px;     
+  font-weight: 700;
+
+  border-radius: 50px; 
+
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.assignment-form > .cancel-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.45);
+}
+@media (max-width: 600px) {
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .assignment-card {
+    padding: 18px;
+  }
+
+  .assignment-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .submit-btn,
+  .form-actions .cancel-btn {
+    width: 100%;
+  }
+
+  .submission-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .assignment-form > .cancel-btn {
+    width: 100%;
+    height: 50px;
+  }
+}

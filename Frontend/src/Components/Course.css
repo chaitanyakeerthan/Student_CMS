@@ -1,0 +1,259 @@
+:root {
+  --primary: #5da2ff;
+  --text-dark: #1e293b;
+  --white: #ffffff;
+}
+
+.course-container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 90px auto 40px;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+
+.create-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.create-btn:hover {
+  box-shadow: 0 8px 20px rgba(93, 162, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.course-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 25px rgba(93, 162, 255, 0.12);
+  transition: 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(93, 162, 255, 0.25);
+}
+
+.course-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.course-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  word-break: break-word;
+}
+
+.open-btn {
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.open-btn:hover {
+  box-shadow: 0 8px 20px rgba(93, 162, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 6px;
+}
+
+.delete-btn:hover {
+  background: #e63946;
+  box-shadow: 0 6px 16px rgba(255, 77, 77, 0.4);
+  transform: translateY(-2px);
+}
+
+.empty-text {
+  text-align: center;
+  font-size: 1.1rem;
+  color: gray;
+  margin-top: 40px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.course-form {
+  background: var(--white);
+  padding: 40px 35px;
+  border-radius: 20px;
+  width: 480px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(93, 162, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.course-form h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.course-form input,
+.course-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: 0.3s ease;
+}
+
+.course-form input:focus,
+.course-form textarea:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(93, 162, 255, 0.15);
+}
+
+.course-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.form-actions .submit-btn,
+.form-actions .cancel-btn {
+  width: 160px;
+  height: 50px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-actions .submit-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.form-actions .submit-btn:hover {
+  box-shadow: 0 8px 20px rgba(93, 162, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.form-actions .cancel-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.form-actions .cancel-btn:hover {
+  box-shadow: 0 8px 20px rgba(255, 77, 77, 0.45);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .course-card {
+    padding: 18px;
+  }
+
+  .open-btn,
+  .delete-btn {
+    width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-actions .submit-btn,
+  .form-actions .cancel-btn {
+    width: 100%;
+    height: 48px;
+  }
+
+  .course-form {
+    padding: 25px 20px;
+  }
+}
