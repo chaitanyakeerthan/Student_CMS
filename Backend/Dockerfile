@@ -1,14 +1,18 @@
-# Build stage
-FROM eclipse-temurin:17-jdk AS build
+# Use official Java image
+FROM eclipse-temurin:17-jdk
+
+# Set working directory
 WORKDIR /app
+
+# Copy project files
 COPY . .
-RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
-# Runtime stage
-FROM eclipse-temurin:17-jre
-WORKDIR /app
-# Copy the built JAR and rename it to app.jar
-COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
+# Build the project
+RUN chmod +x mvnw
+RUN ./mvnw clean package -DskipTests
 
+# Expose port
 EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+
+# Run the jar
+CMD ["java", "-jar", "target/*.jar"]
